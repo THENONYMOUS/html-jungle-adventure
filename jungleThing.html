@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    .spoiler {
+        transition-delay: 0.2s;
+        transition-duration: 0.2s;
+        background-color: black;
+        color: transparent;
+    }
+
+    .spoiler:hover {
+        background-color: white;
+        color: black;
+    }
+</style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <pre>Start:
+<span class="spoiler">I am lost in a jungle, with nothing... wait, what's that?</span>
+<span class="spoiler">If you don't have energy, you will not be able to choose options with ⚡ in them. Press the Start Game button at the bottom. Return means go back to A-A1-A2-A3.</span>
+<span class="spoiler">What should I do? (a or b)</span>
+<span class="spoiler">A⚡:Cross the river filled with crocodiles, to obtain a knife. (20% Chance to die)</span>
+<span class="spoiler">B:Don't cross the river, but if there are obstacles, you're fucked.</span>
+
+💀: <span class="spoiler">well, you died. you are now in the afterlife, when you feel ready you can return to your life and restart (go to start)</span>
+
+A (alive version): <span class="spoiler">wow! you got a cool knife, this will let you do other things! A1: Explore. B1: Look for food, and prepare to build a small shelter. </span>
+A (dead ver): <span class="spoiler">oh shit, you died at a river, good riddance lol (go to 💀)</span>
+B: <span class="spoiler">so uhh, there's a big bush and it looks kinda weird, don't know if I want to proceed... A1: proceed B1: try the river (go to A: cross croc river)</span>
+
+B-A1: <span class="spoiler">AAA THE BUSH MOVED!!! </span><span class="spoiler">wait no it was just the wind, ur fine</span><span class="spoiler">A1: Explore. (go to A -> A1) B1: Look for food, and prepare to build a small shelter. (go to A -> B1)</span>
+
+
+A-A1: <span class="spoiler">You venture towards a small river and decide to have a drink, you feel refreshed and can continue to explore. </span><span class="spoiler">You see a patch of grass which looks comfortable, you lie on it and go to sleep but you sense danger nearby (5% chance to die (go to 💀 if dead))</span><span class="spoiler">You wake up with energy replenished, you decide what to do... A2: find wood and build a shelter. B2⚡🗡️: take a dip in the river and go spearfishing</span>
+A-B1: <span class="spoiler">You venture further into the trees in hope of food and wood to build a shelter. OH NO! THERE'S A MONSTER!</span> 
+<span class="spoiler">A2: Hit the monster. (60% chance to kill it, 40% for it to kill you. (25% if 🗡️)) B2⚡: Run. (You have a 50% chance of losing your energy.)</span>
+
+
+A-A1-A2: <span class="spoiler">you found wood lying on the ground pretty quickly and you make a shelter🔥 at that patch of grass, you are lacking in energy now so (stay here) you can rest and replenish your energy (10% chance to die), (A3) stick around the shelter🔥 or (B3) you can go and explore at a safer time of day.</span>
+A-A1-B2: <span class="spoiler">Hey, that went pretty well. +1 food.</span><span class="spoiler">You 
+
+</span>
+A-B1-A2 (alive): <span class="spoiler">ok, that was lucky, you got a scrap of meat off of it and your energy is replenished.</span><span class="spoiler">you can now build a shelter as you have found some wood, you're also next to a river which is cool. (go to A-A1)</span>
+A-B1-B2: <span class="spoiler">wow, that was scary. A3: Continue exploring B3: Sleep, but you feel like a monster will attack you (10% chance to die)</span>
+
+A-A1-A2-A3: <span class="spoiler">you're bored, you can do something I guess... (stay here) have a drink, replenish your energy⚡ (the drink may contain harmful bacteria, you have a 25% chance to enable "Infected".) or eat some food (requires food, replenishes ⚡, disables "Infected"). maybe go spearfishing (requires ⚡, 🗡️, 50% chance of getting food, removes energy)... you could also explore (Press the "explore" button at the bottom)</span>
+A-A1-A2-B3: <span class="spoiler">Wow. You come face to face with a majestic, beautiful ocean. There is a huge piece of land on the other side,  but you need a boat to cross the ocean. A4: Look for wood to build a boat. B4:You could try to kill a crab, (25% chance for -10 Health, 75% chance of +1 food) then return to your shelter</span>
+
+A-B1-B2-A3: <span class="spoiler">You feel exhausted. You now have no energy.</span>
+A-B1-B2-B3 (alive): <span class="spoiler">Wow, that feels good. You feel dehydrated though... (if 🔥, go to A-A1)</span><span class="spoiler">A4: Look for water. B4: Explore, but you might run out of energy.(20% chance) </span>
+
+A-A1-A2-B3-A4: <span class="spoiler"> Close to here, you find a huge piece of wood.</span>
+A-B1-B2-B3-A4: <span class="spoiler">You don't feel good. Go to A-A1</span>
+Successful?:
+<p id="success"></p>
+<button type="button" onclick="setVarChance()">See your success...</button>
+<input type="text" id="prob" name="prob" />%
+
+<button type="button" onclick="explore()">Explore!</button>
+<span id="explore"></span>
+
+<button type="button" onclick="startGame()">Start Game</button>
+Energy⚡: <input type="checkbox" id="energy" />
+Food: <input type="text" id="food" />
+Shelter🔥: <input type="checkbox" id="shelter" />
+Infected: <input type="checkbox" id="infected" /> (when infected you get -1 health every action)
+Health: <input type="text" id="health" />
+Boat: <input type="checkbox" id="boat" />
+</pre>
+</body>
+</html>
