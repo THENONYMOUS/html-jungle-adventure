@@ -45,7 +45,7 @@ const game = {
         buttons: [
             {
                 text: "Proceed, shouldn't be dangerous...",
-                destination: "endGame",
+                destination: "bushProceed",
             },
             {
                 text: "I dunno, I'll go back...",
@@ -56,18 +56,89 @@ const game = {
             },
         ]
     },
+    bushProceed: {
+        text: "\"AAA THE BUSH MOVED!!!\", wait it was just the wind, nevermind...",
+        buttons: [
+            {
+                text: "Explore",
+                destination: "exploreA1",
+            },
+            {
+                text: "Try to find Wood and build a shelter",
+                destination: "woodA1",
+            },
+        ],
+    },
     riverScene_cross: {
         text: "Hey, you found a knife, cool! This will let you do other things! What do you want to do though?",
         buttons: [
             {
                 text: "Explore",
-                destination: "endGame",
+                destination: "exploreA1",
             },
             {
                 text: "Try to find Wood and build a shelter",
-                destination: "endGame",
+                destination: "woodA1",
             },
         ]
+    },
+    woodA1: {
+        text: "You venture into the trees and hope to find some branches lying on the floor, luckily, there's quite a few branches and you are easily able to find enough for a shelter. The problem is, they're all way too heavy to lift so you'll have to go somewhere else...",
+        buttons: [
+            {
+                text: "Try to find more wood...",
+                destination: "woodA2",
+            },
+        ]
+    },
+    woodA2: {
+        text: "The trees here are younger so the branches are much thinner and you're able to lift them, you want to be near water for fishing and easier food so you take some branches and head towards where you think the river is...",
+        buttons: [
+            {
+                text: "Head towards the river",
+                destination: "woodA3",
+            },
+        ]
+    },
+    woodA3: {
+        text: "You start to hear water and soon see it too, a grand waterfall, plummetting into a pool which leads into the river, you decide this is a nice place for your shelter",
+        buttons: [
+            {
+                text: "Begin construction",
+                destination: "shelterScene",
+            },
+        ]
+    },
+    exploreA1: {
+        text: "You wander upstream along the river and the cliff goes closer to the river until there isn't anywhere to walk on the other side, where you were before...",
+        buttons: [
+            {
+                text: "Continue to Explore...",
+                destination: "exploreA2",
+            },
+        ]
+    },
+    exploreA2: {
+        text: "Ahead, you see a grand waterfall, plummetting into a pool which leads into the river, you decide that this would be a nice place for your shelter",
+        buttons: [
+            {
+                text: "Gather some wood and build your shelter",
+                destination: "shelterScene",
+            },
+        ]
+    },
+    shelterScene: {
+        text: "\"It's complete!\" A small pile of wood leaning against a tree lies in front of you, what you call \"a shelter\".",
+        buttons: [
+            {
+                text: "Start Chapter I: Survival",
+                destination: "endGame",
+                onClick() {
+                    document.getElementById("chapter").textContent = "Chapter I: Survival";
+                    giveItem("🛖");
+                },
+            },
+        ],
     },
 }
 
